@@ -26,6 +26,7 @@ namespace io.fusionauth.domain {
    * @author Trevor Smith
    */
   public enum AuthenticatorType {
-        LDAP
+        ldap, 
+        generic
   }
 }

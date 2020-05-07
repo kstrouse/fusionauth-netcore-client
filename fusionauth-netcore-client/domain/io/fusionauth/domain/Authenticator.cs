@@ -37,6 +37,8 @@ namespace io.fusionauth.domain {
 
     public Guid? id;
 
+    public DateTimeOffset? insertInstant;
+
     public string name;
 
     public Guid? sslCertificateId;
