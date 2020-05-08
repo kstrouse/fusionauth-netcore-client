@@ -28,6 +28,8 @@ namespace io.fusionauth.domain.api {
 
     public Authenticator authenticator;
 
+    public List<Authenticator> authenticators;
+
     public AuthenticatorResponse with(Action<AuthenticatorResponse> action) {
       action(this);
       return this;
