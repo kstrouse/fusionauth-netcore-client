@@ -41,7 +41,7 @@ namespace io.fusionauth.domain {
 
     public string name;
 
-    public Guid? sslCertificateId;
+    public Guid? sslCertificateKeysId;
 
     public AuthenticatorType type;
 
