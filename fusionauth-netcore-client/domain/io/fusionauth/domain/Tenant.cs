@@ -25,6 +25,8 @@ namespace io.fusionauth.domain {
    */
   public class Tenant {
 
+    public List<AuthenticatorPolicy> authenticatorPolicies;
+
     public bool? configured;
 
     public Dictionary<string, object> data;
