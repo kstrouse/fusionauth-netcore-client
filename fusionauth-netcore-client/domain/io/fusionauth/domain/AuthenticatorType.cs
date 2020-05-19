@@ -27,6 +27,7 @@ namespace io.fusionauth.domain {
    */
   public enum AuthenticatorType {
         ldap, 
-        generic
+        generic, 
+        fusionAuth
   }
 }
