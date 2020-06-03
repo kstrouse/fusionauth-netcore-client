@@ -15,19 +15,17 @@
  */
 
 
-using io.fusionauth.domain.authenticator;
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain.provider {
+namespace io.fusionauth.domain.authenticator {
 
-  public class LambdaConfiguration {
-
-    public Guid? reconcileId;
-
-    public LambdaConfiguration with(Action<LambdaConfiguration> action) {
-      action(this);
-      return this;
-    }
+  /**
+   * @author Trevor Smith
+   */
+  public enum MigrationStrategy {
+        createShellUser, 
+        synchronizeUser, 
+        migrateIdentity
   }
 }

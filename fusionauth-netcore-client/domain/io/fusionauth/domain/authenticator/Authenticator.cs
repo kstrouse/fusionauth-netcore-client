@@ -15,27 +15,46 @@
  */
 
 
+using io.fusionauth.domain;
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain {
+namespace io.fusionauth.domain.authenticator {
 
   /**
+   * Models an external authenticator.
+   *
    * @author Trevor Smith
    */
-  public class AuthenticatorPolicy {
+  public class Authenticator {
 
-    public Guid? authenticatorId;
+    public int? connectTimeout;
 
     public Dictionary<string, object> data;
 
-    public bool? migrateIdentity;
+    public HTTPHeaders headers;
 
-    public AuthenticatorPolicyTrigger run;
+    public string httpAuthenticationPassword;
 
-    public int? sequence;
+    public string httpAuthenticationUsername;
 
-    public AuthenticatorPolicy with(Action<AuthenticatorPolicy> action) {
+    public Guid? id;
+
+    public DateTimeOffset? insertInstant;
+
+    public LambdaConfiguration lambdaConfiguration;
+
+    public string name;
+
+    public int? readTimeout;
+
+    public Guid? sslCertificateKeysId;
+
+    public AuthenticatorType type;
+
+    public string uri;
+
+    public Authenticator with(Action<Authenticator> action) {
       action(this);
       return this;
     }

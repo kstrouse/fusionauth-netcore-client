@@ -18,38 +18,12 @@
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain {
+namespace io.fusionauth.domain.authenticator {
 
   /**
-   * Models an external authenticator.
-   *
    * @author Trevor Smith
    */
-  public class Authenticator {
-
-    public Dictionary<string, object> data;
-
-    public HTTPHeaders headers;
-
-    public string httpAuthenticationPassword;
-
-    public string httpAuthenticationUsername;
-
-    public Guid? id;
-
-    public DateTimeOffset? insertInstant;
-
-    public string name;
-
-    public Guid? sslCertificateKeysId;
-
-    public AuthenticatorType type;
-
-    public string uri;
-
-    public Authenticator with(Action<Authenticator> action) {
-      action(this);
-      return this;
-    }
+  public enum ExecutionTrigger {
+        always
   }
 }

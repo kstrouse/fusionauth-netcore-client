@@ -30,6 +30,8 @@ namespace io.fusionauth.domain {
 
     public bool? active;
 
+    public Guid? authenticatorId;
+
     public string birthDate;
 
     public Guid? cleanSpeakId;

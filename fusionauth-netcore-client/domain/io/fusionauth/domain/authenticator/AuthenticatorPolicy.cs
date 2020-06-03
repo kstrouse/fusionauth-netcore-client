@@ -18,12 +18,26 @@
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain {
+namespace io.fusionauth.domain.authenticator {
 
   /**
    * @author Trevor Smith
    */
-  public enum AuthenticatorPolicyTrigger {
-        always
+  public class AuthenticatorPolicy {
+
+    public Guid? authenticatorId;
+
+    public Dictionary<string, object> data;
+
+    public ExecutionTrigger executionTrigger;
+
+    public MigrationStrategy migrationStrategy;
+
+    public int? sequence;
+
+    public AuthenticatorPolicy with(Action<AuthenticatorPolicy> action) {
+      action(this);
+      return this;
+    }
   }
 }

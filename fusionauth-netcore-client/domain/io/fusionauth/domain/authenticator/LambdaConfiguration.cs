@@ -15,11 +15,10 @@
  */
 
 
-using io.fusionauth.domain.authenticator;
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain.provider {
+namespace io.fusionauth.domain.authenticator {
 
   public class LambdaConfiguration {
 

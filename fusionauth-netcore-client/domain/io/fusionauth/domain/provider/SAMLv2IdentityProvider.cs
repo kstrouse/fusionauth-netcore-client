@@ -15,6 +15,7 @@
  */
 
 
+using io.fusionauth.domain.authenticator;
 using io.fusionauth.converters.helpers;
 using System.Collections.Generic;
 using System;
