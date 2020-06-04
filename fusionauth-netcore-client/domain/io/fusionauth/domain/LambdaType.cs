@@ -35,6 +35,7 @@ namespace io.fusionauth.domain {
         FacebookReconcile, 
         GoogleReconcile, 
         HYPRReconcile, 
-        TwitterReconcile
+        TwitterReconcile, 
+        LdapReconcile
   }
 }

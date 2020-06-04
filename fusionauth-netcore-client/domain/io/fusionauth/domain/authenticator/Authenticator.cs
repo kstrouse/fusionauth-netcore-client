@@ -28,6 +28,8 @@ namespace io.fusionauth.domain.authenticator {
    */
   public class Authenticator {
 
+    public string authenticationUri;
+
     public int? connectTimeout;
 
     public Dictionary<string, object> data;
@@ -48,11 +50,11 @@ namespace io.fusionauth.domain.authenticator {
 
     public int? readTimeout;
 
+    public string retrieveUserUri;
+
     public Guid? sslCertificateKeyId;
 
     public AuthenticatorType type;
-
-    public string uri;
 
     public Authenticator with(Action<Authenticator> action) {
       action(this);
