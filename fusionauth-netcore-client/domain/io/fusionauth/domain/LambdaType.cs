@@ -30,6 +30,11 @@ namespace io.fusionauth.domain {
         OpenIDReconcile, 
         SAMLv2Reconcile, 
         SAMLv2Populate, 
-        LdapReconcile
+        AppleReconcile, 
+        ExternalJWTReconcile, 
+        FacebookReconcile, 
+        GoogleReconcile, 
+        HYPRReconcile, 
+        TwitterReconcile
   }
 }
