@@ -48,7 +48,7 @@ namespace io.fusionauth.domain.authenticator {
 
     public int? readTimeout;
 
-    public Guid? sslCertificateKeysId;
+    public Guid? sslCertificateKeyId;
 
     public AuthenticatorType type;
 
