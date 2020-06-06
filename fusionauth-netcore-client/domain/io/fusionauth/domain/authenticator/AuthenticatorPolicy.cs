@@ -20,9 +20,7 @@ using System;
 
 namespace io.fusionauth.domain.authenticator {
 
-  /**
-   * @author Trevor Smith
-   */
+  // - Why does this implement _InternalJSONColumn, and why does this use @InternalJSONColumn?, does this have it's own table with a data column?
   public class AuthenticatorPolicy {
 
     public Guid? authenticatorId;

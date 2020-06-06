@@ -30,9 +30,15 @@ namespace io.fusionauth.domain.authenticator {
 
     public string authenticationUri;
 
+    public string baseStructure;
+
     public int? connectTimeout;
 
     public Dictionary<string, object> data;
+
+    public bool? debug;
+
+    public string emailAttribute;
 
     public HTTPHeaders headers;
 
@@ -42,6 +48,8 @@ namespace io.fusionauth.domain.authenticator {
 
     public Guid? id;
 
+    public string identifyingAttribute;
+
     public DateTimeOffset? insertInstant;
 
     public LambdaConfiguration lambdaConfiguration;
@@ -50,9 +58,15 @@ namespace io.fusionauth.domain.authenticator {
 
     public int? readTimeout;
 
+    public List<string> requestedAttributes;
+
     public string retrieveUserUri;
 
     public Guid? sslCertificateKeyId;
+
+    public string systemAccountDn;
+
+    public string systemAccountPassword;
 
     public AuthenticatorType type;
 
