@@ -29,7 +29,7 @@ namespace io.fusionauth.domain.connector {
    */
   public class Connector {
 
-    public string authenticationUri;
+    public string authenticationURL;
 
     public string baseStructure;
 
@@ -61,7 +61,7 @@ namespace io.fusionauth.domain.connector {
 
     public List<string> requestedAttributes;
 
-    public string retrieveUserUri;
+    public string retrieveUserURL;
 
     public Guid? sslCertificateKeyId;
 
