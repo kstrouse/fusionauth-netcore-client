@@ -16,17 +16,18 @@
 
 
 using io.fusionauth.domain;
+using io.fusionauth.domain.provider;
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain.authenticator {
+namespace io.fusionauth.domain.connector {
 
   /**
    * Models an external authenticator.
    *
    * @author Trevor Smith
    */
-  public class Authenticator {
+  public class Connector {
 
     public string authenticationUri;
 
@@ -68,9 +69,9 @@ namespace io.fusionauth.domain.authenticator {
 
     public string systemAccountPassword;
 
-    public AuthenticatorType type;
+    public ConnectorType type;
 
-    public Authenticator with(Action<Authenticator> action) {
+    public Connector with(Action<Connector> action) {
       action(this);
       return this;
     }

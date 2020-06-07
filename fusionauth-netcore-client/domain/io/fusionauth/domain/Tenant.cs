@@ -15,7 +15,7 @@
  */
 
 
-using io.fusionauth.domain.authenticator;
+using io.fusionauth.domain.connector;
 using System.Collections.Generic;
 using System;
 
@@ -26,9 +26,9 @@ namespace io.fusionauth.domain {
    */
   public class Tenant {
 
-    public List<AuthenticatorPolicy> authenticatorPolicies;
-
     public bool? configured;
+
+    public List<ConnectorPolicy> connectorPolicies;
 
     public Dictionary<string, object> data;
 

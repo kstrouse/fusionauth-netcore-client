@@ -15,25 +15,20 @@
  */
 
 
+using io.fusionauth.domain.connector;
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain.authenticator {
+namespace io.fusionauth.domain.api {
 
-  // - Why does this implement _InternalJSONColumn, and why does this use @InternalJSONColumn?, does this have it's own table with a data column?
-  public class AuthenticatorPolicy {
+  /**
+   * @author Trevor Smith
+   */
+  public class ConnectorRequest {
 
-    public Guid? authenticatorId;
+    public Connector connector;
 
-    public Dictionary<string, object> data;
-
-    public ExecutionTrigger executionTrigger;
-
-    public MigrationStrategy migrationStrategy;
-
-    public int? sequence;
-
-    public AuthenticatorPolicy with(Action<AuthenticatorPolicy> action) {
+    public ConnectorRequest with(Action<ConnectorRequest> action) {
       action(this);
       return this;
     }

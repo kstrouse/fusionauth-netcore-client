@@ -15,22 +15,19 @@
  */
 
 
-using io.fusionauth.domain.authenticator;
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain.api {
+namespace io.fusionauth.domain.connector {
 
   /**
+   * The types of connectors.
+   *
    * @author Trevor Smith
    */
-  public class AuthenticatorRequest {
-
-    public Authenticator authenticator;
-
-    public AuthenticatorRequest with(Action<AuthenticatorRequest> action) {
-      action(this);
-      return this;
-    }
+  public enum ConnectorType {
+        FusionAuth, 
+        Generic, 
+        LDAP
   }
 }

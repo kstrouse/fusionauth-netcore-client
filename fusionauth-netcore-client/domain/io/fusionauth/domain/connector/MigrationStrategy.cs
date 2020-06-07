@@ -18,14 +18,14 @@
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain.authenticator {
+namespace io.fusionauth.domain.connector {
 
   /**
    * @author Trevor Smith
    */
   public enum MigrationStrategy {
-        createShellUser, 
-        synchronizeUser, 
-        migrateIdentity
+        CreateShellUser, 
+        SynchronizeUser, 
+        MigrateIdentity
   }
 }

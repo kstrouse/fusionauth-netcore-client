@@ -18,16 +18,10 @@
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain.authenticator {
+namespace io.fusionauth.domain.connector {
 
-  /**
-   * The types of authenticators.
-   *
-   * @author Trevor Smith
-   */
-  public enum AuthenticatorType {
-        ldap, 
-        generic, 
-        fusionAuth
+  public enum ExecutionTriggerType {
+        Always, 
+        FilterByDomain
   }
 }

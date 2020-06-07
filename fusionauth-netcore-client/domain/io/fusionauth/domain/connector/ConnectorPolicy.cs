@@ -20,14 +20,22 @@ using System;
 
 namespace io.fusionauth.domain.connector {
 
-  // TODO : Authenticators : Is this a trigger or just a policy?
-  public class ExecutionTrigger {
+  /**
+   * @author Trevor Smith
+   */
+  public class ConnectorPolicy {
 
-    public List<string> filterDomains;
+    public Guid? connectorId;
 
-    public ExecutionTriggerType type;
+    public Dictionary<string, object> data;
 
-    public ExecutionTrigger with(Action<ExecutionTrigger> action) {
+    public ExecutionTrigger executionTrigger;
+
+    public MigrationStrategy migrationStrategy;
+
+    public int? sequence;
+
+    public ConnectorPolicy with(Action<ConnectorPolicy> action) {
       action(this);
       return this;
     }

@@ -15,7 +15,7 @@
  */
 
 
-using io.fusionauth.domain.authenticator;
+using io.fusionauth.domain.connector;
 using System.Collections.Generic;
 using System;
 
@@ -24,13 +24,13 @@ namespace io.fusionauth.domain.api {
   /**
    * @author Trevor Smith
    */
-  public class AuthenticatorResponse {
+  public class ConnectorResponse {
 
-    public Authenticator authenticator;
+    public Connector connector;
 
-    public List<Authenticator> authenticators;
+    public List<Connector> connectors;
 
-    public AuthenticatorResponse with(Action<AuthenticatorResponse> action) {
+    public ConnectorResponse with(Action<ConnectorResponse> action) {
       action(this);
       return this;
     }
