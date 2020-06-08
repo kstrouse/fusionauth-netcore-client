@@ -20,11 +20,7 @@ using System;
 
 namespace io.fusionauth.domain.connector {
 
-  /**
-   * Models an external connector.
-   *
-   * @author Trevor Smith
-   */
+  // TODO : Authenticators : This additional layer seems odd to me. THis 'attribute' of a connector is probably better suited to be an interface.
   public class ExternalConnector: BaseConnector {
 
     public int? connectTimeout;

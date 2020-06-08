@@ -150,6 +150,16 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public Task<ClientResponse<ConnectorResponse>> CreateConnectorAsync(Guid? connectorId, ConnectorRequest request) {
+      return buildClient()
+          .withUri("/api/connector")
+          .withUriSegment(connectorId)
+          .withJSONBody(request)
+          .withMethod("Post")
+          .goAsync<ConnectorResponse>();
+    }
+
+    /// <inheritdoc/>
     public Task<ClientResponse<ConsentResponse>> CreateConsentAsync(Guid? consentId, ConsentRequest request) {
       return buildClient()
           .withUri("/api/consent")
@@ -1049,6 +1059,14 @@ namespace io.fusionauth {
           .withUriSegment(auditLogId)
           .withMethod("Get")
           .goAsync<AuditLogResponse>();
+    }
+
+    /// <inheritdoc/>
+    public Task<ClientResponse<ConnectorResponse>> RetrieveConnectorsAsync() {
+      return buildClient()
+          .withUri("/api/connector")
+          .withMethod("Get")
+          .goAsync<ConnectorResponse>();
     }
 
     /// <inheritdoc/>

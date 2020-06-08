@@ -163,6 +163,20 @@ namespace io.fusionauth {
     Task<ClientResponse<AuditLogResponse>> CreateAuditLogAsync(AuditLogRequest request);
 
     /// <summary>
+    /// Creates a connector.  You can optionally specify an Id for the connector, if not provided one will be generated.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="connectorId"> (Optional) The Id for the connector. If not provided a secure random UUID will be generated.</param>
+    /// <param name="request"> The request object that contains all of the information used to create the connector.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<ConnectorResponse>> CreateConnectorAsync(Guid? connectorId, ConnectorRequest request);
+
+    /// <summary>
     /// Creates a user consent type. You can optionally specify an Id for the consent type, if not provided one will be generated.
     /// This is an asynchronous method.
     /// </summary>
@@ -1456,6 +1470,18 @@ namespace io.fusionauth {
     /// IOException.
     /// </returns>
     Task<ClientResponse<AuditLogResponse>> RetrieveAuditLogAsync(int? auditLogId);
+
+    /// <summary>
+    /// Retrieves all of the connectors.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<ConnectorResponse>> RetrieveConnectorsAsync();
 
     /// <summary>
     /// Retrieves the Consent for the given Id.
@@ -2946,6 +2972,19 @@ namespace io.fusionauth {
    ClientResponse<AuditLogResponse> CreateAuditLog(AuditLogRequest request);
 
    /// <summary>
+   /// Creates a connector.  You can optionally specify an Id for the connector, if not provided one will be generated.
+   /// </summary>
+   /// <param name="connectorId"> (Optional) The Id for the connector. If not provided a secure random UUID will be generated.</param>
+   /// <param name="request"> The request object that contains all of the information used to create the connector.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<ConnectorResponse> CreateConnector(Guid? connectorId, ConnectorRequest request);
+
+   /// <summary>
    /// Creates a user consent type. You can optionally specify an Id for the consent type, if not provided one will be generated.
    /// </summary>
    /// <param name="consentId"> (Optional) The Id for the consent. If not provided a secure random UUID will be generated.</param>
@@ -4148,6 +4187,17 @@ namespace io.fusionauth {
    /// IOException.
    /// </returns>
    ClientResponse<AuditLogResponse> RetrieveAuditLog(int? auditLogId);
+
+   /// <summary>
+   /// Retrieves all of the connectors.
+   /// </summary>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<ConnectorResponse> RetrieveConnectors();
 
    /// <summary>
    /// Retrieves the Consent for the given Id.

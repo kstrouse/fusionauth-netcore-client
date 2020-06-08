@@ -81,6 +81,11 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public ClientResponse<ConnectorResponse> CreateConnector(Guid? connectorId, ConnectorRequest request) {
+      return client.CreateConnectorAsync(connectorId, request).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc/>
     public ClientResponse<ConsentResponse> CreateConsent(Guid? consentId, ConsentRequest request) {
       return client.CreateConsentAsync(consentId, request).GetAwaiter().GetResult();
     }
@@ -535,6 +540,11 @@ namespace io.fusionauth {
     /// <inheritdoc/>
     public ClientResponse<AuditLogResponse> RetrieveAuditLog(int? auditLogId) {
       return client.RetrieveAuditLogAsync(auditLogId).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc/>
+    public ClientResponse<ConnectorResponse> RetrieveConnectors() {
+      return client.RetrieveConnectorsAsync().GetAwaiter().GetResult();
     }
 
     /// <inheritdoc/>
