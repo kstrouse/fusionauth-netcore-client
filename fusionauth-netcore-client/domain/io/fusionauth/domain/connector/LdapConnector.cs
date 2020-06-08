@@ -21,7 +21,11 @@ using System;
 
 namespace io.fusionauth.domain.connector {
 
-  // TODO : Authenticators : Naming : LDAPConnector
+  /**
+   * Models an LDAP connector.
+   *
+   * @author Trevor Smith
+   */
   public class LdapConnector: ExternalConnector {
 
     public string baseStructure;
