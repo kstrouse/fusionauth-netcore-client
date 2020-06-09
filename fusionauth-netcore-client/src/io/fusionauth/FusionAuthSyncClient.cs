@@ -543,6 +543,11 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public ClientResponse<ConnectorResponse> RetrieveConnector(Guid? connectorId) {
+      return client.RetrieveConnectorAsync(connectorId).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc/>
     public ClientResponse<ConnectorResponse> RetrieveConnectors() {
       return client.RetrieveConnectorsAsync().GetAwaiter().GetResult();
     }
@@ -952,6 +957,11 @@ namespace io.fusionauth {
     /// <inheritdoc/>
     public ClientResponse<ApplicationResponse> UpdateApplicationRole(Guid? applicationId, Guid? roleId, ApplicationRequest request) {
       return client.UpdateApplicationRoleAsync(applicationId, roleId, request).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc/>
+    public ClientResponse<ConnectorResponse> UpdateConnector(Guid? connectorId, ConnectorRequest request) {
+      return client.UpdateConnectorAsync(connectorId, request).GetAwaiter().GetResult();
     }
 
     /// <inheritdoc/>

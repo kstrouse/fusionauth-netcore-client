@@ -1062,6 +1062,15 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public Task<ClientResponse<ConnectorResponse>> RetrieveConnectorAsync(Guid? connectorId) {
+      return buildClient()
+          .withUri("/api/connector")
+          .withUriSegment(connectorId)
+          .withMethod("Get")
+          .goAsync<ConnectorResponse>();
+    }
+
+    /// <inheritdoc/>
     public Task<ClientResponse<ConnectorResponse>> RetrieveConnectorsAsync() {
       return buildClient()
           .withUri("/api/connector")
@@ -1807,6 +1816,16 @@ namespace io.fusionauth {
           .withJSONBody(request)
           .withMethod("Put")
           .goAsync<ApplicationResponse>();
+    }
+
+    /// <inheritdoc/>
+    public Task<ClientResponse<ConnectorResponse>> UpdateConnectorAsync(Guid? connectorId, ConnectorRequest request) {
+      return buildClient()
+          .withUri("/api/connector")
+          .withUriSegment(connectorId)
+          .withJSONBody(request)
+          .withMethod("Put")
+          .goAsync<ConnectorResponse>();
     }
 
     /// <inheritdoc/>
