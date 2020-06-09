@@ -472,6 +472,19 @@ namespace io.fusionauth {
     Task<ClientResponse<RESTVoid>> DeleteApplicationRoleAsync(Guid? applicationId, Guid? roleId);
 
     /// <summary>
+    /// Deletes the connector for the given Id.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="connectorId"> The Id of the connector to delete.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<RESTVoid>> DeleteConnectorAsync(Guid? connectorId);
+
+    /// <summary>
     /// Deletes the consent for the given Id.
     /// This is an asynchronous method.
     /// </summary>
@@ -3284,6 +3297,18 @@ namespace io.fusionauth {
    /// IOException.
    /// </returns>
    ClientResponse<RESTVoid> DeleteApplicationRole(Guid? applicationId, Guid? roleId);
+
+   /// <summary>
+   /// Deletes the connector for the given Id.
+   /// </summary>
+   /// <param name="connectorId"> The Id of the connector to delete.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<RESTVoid> DeleteConnector(Guid? connectorId);
 
    /// <summary>
    /// Deletes the consent for the given Id.

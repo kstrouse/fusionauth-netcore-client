@@ -192,6 +192,11 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public ClientResponse<RESTVoid> DeleteConnector(Guid? connectorId) {
+      return client.DeleteConnectorAsync(connectorId).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc/>
     public ClientResponse<RESTVoid> DeleteConsent(Guid? consentId) {
       return client.DeleteConsentAsync(consentId).GetAwaiter().GetResult();
     }

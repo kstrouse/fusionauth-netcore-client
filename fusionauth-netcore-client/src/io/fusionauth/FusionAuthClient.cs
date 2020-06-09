@@ -370,6 +370,15 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public Task<ClientResponse<RESTVoid>> DeleteConnectorAsync(Guid? connectorId) {
+      return buildClient()
+          .withUri("/api/connector")
+          .withUriSegment(connectorId)
+          .withMethod("Delete")
+          .goAsync<RESTVoid>();
+    }
+
+    /// <inheritdoc/>
     public Task<ClientResponse<RESTVoid>> DeleteConsentAsync(Guid? consentId) {
       return buildClient()
           .withUri("/api/consent")
