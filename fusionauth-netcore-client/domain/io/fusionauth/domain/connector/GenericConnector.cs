@@ -26,7 +26,13 @@ namespace io.fusionauth.domain.connector {
    *
    * @author Trevor Smith
    */
-  public class GenericConnector: ExternalConnector {
+  public class GenericConnector: BaseConnector {
+
+    public string authenticationURL;
+
+    public int? connectTimeout;
+
+    public bool? debug;
 
     public HTTPHeaders headers;
 
@@ -34,7 +40,11 @@ namespace io.fusionauth.domain.connector {
 
     public string httpAuthenticationUsername;
 
+    public int? readTimeout;
+
     public string retrieveUserURL;
+
+    public Guid? sslCertificateKeyId;
 
     public GenericConnector with(Action<GenericConnector> action) {
       action(this);

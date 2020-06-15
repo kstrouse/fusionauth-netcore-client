@@ -23,8 +23,6 @@ namespace io.fusionauth.domain.connector {
   // Do not require a setter for 'type', it is defined by the concrete class and is not mutable
   public class BaseConnector {
 
-    public string authenticationURL;
-
     public Dictionary<string, object> data;
 
     public Guid? id;
@@ -32,8 +30,6 @@ namespace io.fusionauth.domain.connector {
     public DateTimeOffset? insertInstant;
 
     public string name;
-
-    public Guid? sslCertificateKeyId;
 
     public ConnectorType type;
 

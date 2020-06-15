@@ -26,15 +26,23 @@ namespace io.fusionauth.domain.connector {
    *
    * @author Trevor Smith
    */
-  public class LDAPConnector: ExternalConnector {
+  public class LDAPConnector: BaseConnector {
+
+    public string authenticationURL;
 
     public string baseStructure;
+
+    public int? connectTimeout;
+
+    public bool? debug;
 
     public string emailAttribute;
 
     public string identifyingAttribute;
 
     public LambdaConfiguration lambdaConfiguration;
+
+    public int? readTimeout;
 
     public List<string> requestedAttributes;
 

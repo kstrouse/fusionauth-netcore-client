@@ -21,17 +21,11 @@ using System;
 namespace io.fusionauth.domain.connector {
 
   /**
-   * Models an external connector.
+   * Interface for all external connectors.
    *
    * @author Trevor Smith
    */
-  public class ExternalConnector: BaseConnector {
-
-    public int? connectTimeout;
-
-    public bool? debug;
-
-    public int? readTimeout;
+  public class ExternalConnector {
 
     public ExternalConnector with(Action<ExternalConnector> action) {
       action(this);
