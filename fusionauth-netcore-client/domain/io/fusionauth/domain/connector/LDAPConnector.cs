@@ -38,6 +38,8 @@ namespace io.fusionauth.domain.connector {
 
     public List<string> requestedAttributes;
 
+    public LDAPSecurityMethod securityMethod;
+
     public string systemAccountDn;
 
     public string systemAccountPassword;
