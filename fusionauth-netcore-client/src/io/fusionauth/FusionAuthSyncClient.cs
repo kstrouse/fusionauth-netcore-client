@@ -398,6 +398,11 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public ClientResponse<ConnectorResponse> PatchConnector(Guid? connectorId, Dictionary<string, object> request) {
+      return client.PatchConnectorAsync(connectorId, request).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc/>
     public ClientResponse<ConsentResponse> PatchConsent(Guid? consentId, Dictionary<string, object> request) {
       return client.PatchConsentAsync(consentId, request).GetAwaiter().GetResult();
     }

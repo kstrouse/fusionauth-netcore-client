@@ -1073,6 +1073,20 @@ namespace io.fusionauth {
     Task<ClientResponse<ApplicationResponse>> PatchApplicationRoleAsync(Guid? applicationId, Guid? roleId, Dictionary<string, object> request);
 
     /// <summary>
+    /// Updates, via PATCH, the connector with the given Id.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="connectorId"> The Id of the connector to update.</param>
+    /// <param name="request"> The request that contains just the new connector information.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<ConnectorResponse>> PatchConnectorAsync(Guid? connectorId, Dictionary<string, object> request);
+
+    /// <summary>
     /// Updates, via PATCH, the consent with the given Id.
     /// This is an asynchronous method.
     /// </summary>
@@ -3857,6 +3871,19 @@ namespace io.fusionauth {
    /// IOException.
    /// </returns>
    ClientResponse<ApplicationResponse> PatchApplicationRole(Guid? applicationId, Guid? roleId, Dictionary<string, object> request);
+
+   /// <summary>
+   /// Updates, via PATCH, the connector with the given Id.
+   /// </summary>
+   /// <param name="connectorId"> The Id of the connector to update.</param>
+   /// <param name="request"> The request that contains just the new connector information.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<ConnectorResponse> PatchConnector(Guid? connectorId, Dictionary<string, object> request);
 
    /// <summary>
    /// Updates, via PATCH, the consent with the given Id.

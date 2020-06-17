@@ -783,6 +783,16 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public Task<ClientResponse<ConnectorResponse>> PatchConnectorAsync(Guid? connectorId, Dictionary<string, object> request) {
+      return buildClient()
+          .withUri("/api/connector")
+          .withUriSegment(connectorId)
+          .withJSONBody(request)
+          .withMethod("Patch")
+          .goAsync<ConnectorResponse>();
+    }
+
+    /// <inheritdoc/>
     public Task<ClientResponse<ConsentResponse>> PatchConsentAsync(Guid? consentId, Dictionary<string, object> request) {
       return buildClient()
           .withUri("/api/consent")
