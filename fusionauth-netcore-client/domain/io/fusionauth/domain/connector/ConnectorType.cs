@@ -21,7 +21,7 @@ using System;
 namespace io.fusionauth.domain.connector {
 
   /**
-   * The types of connectors.
+   * The types of connectors. This enum is stored as an ordinal on the <code>identities</code> table, order must be maintained.
    *
    * @author Trevor Smith
    */

@@ -34,8 +34,6 @@ namespace io.fusionauth.domain.connector {
 
     public int? connectTimeout;
 
-    public bool? debug;
-
     public string emailAttribute;
 
     public string identifyingAttribute;

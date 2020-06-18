@@ -25,6 +25,8 @@ namespace io.fusionauth.domain.connector {
 
     public Dictionary<string, object> data;
 
+    public bool? debug;
+
     public Guid? id;
 
     public DateTimeOffset? insertInstant;

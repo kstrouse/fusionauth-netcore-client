@@ -32,8 +32,6 @@ namespace io.fusionauth.domain.connector {
 
     public int? connectTimeout;
 
-    public bool? debug;
-
     public HTTPHeaders headers;
 
     public string httpAuthenticationPassword;
