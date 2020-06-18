@@ -46,7 +46,7 @@ namespace io.fusionauth.domain.connector {
 
     public LDAPSecurityMethod securityMethod;
 
-    public string systemAccountDn;
+    public string systemAccountDN;
 
     public string systemAccountPassword;
 
