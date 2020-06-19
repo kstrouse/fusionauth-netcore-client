@@ -33,8 +33,6 @@ namespace io.fusionauth.domain.connector {
 
     public MigrationStrategy migrationStrategy;
 
-    public int? sequence;
-
     public ConnectorPolicy with(Action<ConnectorPolicy> action) {
       action(this);
       return this;
