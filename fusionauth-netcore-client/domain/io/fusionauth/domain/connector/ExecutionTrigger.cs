@@ -20,7 +20,9 @@ using System;
 
 namespace io.fusionauth.domain.connector {
 
-  // TODO : Authenticators : Is this a trigger or just a policy?
+  /**
+   * @author Trevor Smith
+   */
   public class ExecutionTrigger {
 
     public List<string> filterDomains;
