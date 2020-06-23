@@ -25,13 +25,13 @@ namespace io.fusionauth.domain.connector {
    */
   public class ConnectorPolicy {
 
+    public ConnectorUserAction action;
+
     public Guid? connectorId;
 
     public Dictionary<string, object> data;
 
-    public ExecutionTrigger executionTrigger;
-
-    public MigrationStrategy migrationStrategy;
+    public List<string> domains;
 
     public ConnectorPolicy with(Action<ConnectorPolicy> action) {
       action(this);

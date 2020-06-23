@@ -23,9 +23,9 @@ namespace io.fusionauth.domain.connector {
   /**
    * @author Trevor Smith
    */
-  public enum MigrationStrategy {
-        ShellUser, 
-        SynchronizeUser, 
-        MigrateIdentity
+  public enum ConnectorUserAction {
+        Shadow, 
+        Synchronize, 
+        Migrate
   }
 }
