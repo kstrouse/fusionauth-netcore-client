@@ -190,6 +190,26 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public Task<ClientResponse<FormResponse>> CreateFormAsync(Guid? formId, FormRequest request) {
+      return buildClient()
+          .withUri("/api/form")
+          .withUriSegment(formId)
+          .withJSONBody(request)
+          .withMethod("Post")
+          .goAsync<FormResponse>();
+    }
+
+    /// <inheritdoc/>
+    public Task<ClientResponse<FormFieldResponse>> CreateFormFieldAsync(Guid? fieldId, FormFieldRequest request) {
+      return buildClient()
+          .withUri("/api/form/field")
+          .withUriSegment(fieldId)
+          .withJSONBody(request)
+          .withMethod("Post")
+          .goAsync<FormFieldResponse>();
+    }
+
+    /// <inheritdoc/>
     public Task<ClientResponse<GroupResponse>> CreateGroupAsync(Guid? groupId, GroupRequest request) {
       return buildClient()
           .withUri("/api/group")
@@ -392,6 +412,24 @@ namespace io.fusionauth {
       return buildClient()
           .withUri("/api/email/template")
           .withUriSegment(emailTemplateId)
+          .withMethod("Delete")
+          .goAsync<RESTVoid>();
+    }
+
+    /// <inheritdoc/>
+    public Task<ClientResponse<RESTVoid>> DeleteFormAsync(Guid? formId) {
+      return buildClient()
+          .withUri("/api/form")
+          .withUriSegment(formId)
+          .withMethod("Delete")
+          .goAsync<RESTVoid>();
+    }
+
+    /// <inheritdoc/>
+    public Task<ClientResponse<RESTVoid>> DeleteFormFieldAsync(Guid? fieldId) {
+      return buildClient()
+          .withUri("/api/form/field")
+          .withUriSegment(fieldId)
           .withMethod("Delete")
           .goAsync<RESTVoid>();
     }
@@ -1179,6 +1217,40 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public Task<ClientResponse<FormResponse>> RetrieveFormAsync(Guid? formId) {
+      return buildClient()
+          .withUri("/api/form")
+          .withUriSegment(formId)
+          .withMethod("Get")
+          .goAsync<FormResponse>();
+    }
+
+    /// <inheritdoc/>
+    public Task<ClientResponse<FormFieldResponse>> RetrieveFormFieldAsync(Guid? fieldId) {
+      return buildClient()
+          .withUri("/api/form/field")
+          .withUriSegment(fieldId)
+          .withMethod("Get")
+          .goAsync<FormFieldResponse>();
+    }
+
+    /// <inheritdoc/>
+    public Task<ClientResponse<FormFieldResponse>> RetrieveFormFieldsAsync() {
+      return buildClient()
+          .withUri("/api/form/field")
+          .withMethod("Get")
+          .goAsync<FormFieldResponse>();
+    }
+
+    /// <inheritdoc/>
+    public Task<ClientResponse<FormResponse>> RetrieveFormsAsync() {
+      return buildClient()
+          .withUri("/api/form")
+          .withMethod("Get")
+          .goAsync<FormResponse>();
+    }
+
+    /// <inheritdoc/>
     public Task<ClientResponse<GroupResponse>> RetrieveGroupAsync(Guid? groupId) {
       return buildClient()
           .withUri("/api/group")
@@ -1865,6 +1937,26 @@ namespace io.fusionauth {
           .withJSONBody(request)
           .withMethod("Put")
           .goAsync<EmailTemplateResponse>();
+    }
+
+    /// <inheritdoc/>
+    public Task<ClientResponse<FormResponse>> UpdateFormAsync(Guid? formId, FormRequest request) {
+      return buildClient()
+          .withUri("/api/form")
+          .withUriSegment(formId)
+          .withJSONBody(request)
+          .withMethod("Put")
+          .goAsync<FormResponse>();
+    }
+
+    /// <inheritdoc/>
+    public Task<ClientResponse<FormFieldResponse>> UpdateFormFieldAsync(Guid? fieldId, FormFieldRequest request) {
+      return buildClient()
+          .withUri("/api/form/field")
+          .withUriSegment(fieldId)
+          .withJSONBody(request)
+          .withMethod("Put")
+          .goAsync<FormFieldResponse>();
     }
 
     /// <inheritdoc/>

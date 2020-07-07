@@ -220,6 +220,34 @@ namespace io.fusionauth {
     Task<ClientResponse<FamilyResponse>> CreateFamilyAsync(Guid? familyId, FamilyRequest request);
 
     /// <summary>
+    /// Creates a form.  You can optionally specify an Id for the form, if not provided one will be generated.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="formId"> (Optional) The Id for the form. If not provided a secure random UUID will be generated.</param>
+    /// <param name="request"> The request object that contains all of the information used to create the form.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<FormResponse>> CreateFormAsync(Guid? formId, FormRequest request);
+
+    /// <summary>
+    /// Creates a form field.  You can optionally specify an Id for the form, if not provided one will be generated.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="fieldId"> (Optional) The Id for the form field. If not provided a secure random UUID will be generated.</param>
+    /// <param name="request"> The request object that contains all of the information used to create the form field.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<FormFieldResponse>> CreateFormFieldAsync(Guid? fieldId, FormFieldRequest request);
+
+    /// <summary>
     /// Creates a group. You can optionally specify an Id for the group, if not provided one will be generated.
     /// This is an asynchronous method.
     /// </summary>
@@ -509,6 +537,32 @@ namespace io.fusionauth {
     /// IOException.
     /// </returns>
     Task<ClientResponse<RESTVoid>> DeleteEmailTemplateAsync(Guid? emailTemplateId);
+
+    /// <summary>
+    /// Deletes the form for the given Id.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="formId"> The Id of the form to delete.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<RESTVoid>> DeleteFormAsync(Guid? formId);
+
+    /// <summary>
+    /// Deletes the form field for the given Id.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="fieldId"> The Id of the form field to delete.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<RESTVoid>> DeleteFormFieldAsync(Guid? fieldId);
 
     /// <summary>
     /// Deletes the group for the given Id.
@@ -1644,6 +1698,56 @@ namespace io.fusionauth {
     Task<ClientResponse<FamilyResponse>> RetrieveFamilyMembersByFamilyIdAsync(Guid? familyId);
 
     /// <summary>
+    /// Retrieves the form with the given Id.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="formId"> The Id of the form.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<FormResponse>> RetrieveFormAsync(Guid? formId);
+
+    /// <summary>
+    /// Retrieves the form field with the given Id.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="fieldId"> The Id of the form field.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<FormFieldResponse>> RetrieveFormFieldAsync(Guid? fieldId);
+
+    /// <summary>
+    /// Retrieves all of the forms fields
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<FormFieldResponse>> RetrieveFormFieldsAsync();
+
+    /// <summary>
+    /// Retrieves all of the forms.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<FormResponse>> RetrieveFormsAsync();
+
+    /// <summary>
     /// Retrieves the group for the given Id.
     /// This is an asynchronous method.
     /// </summary>
@@ -2650,6 +2754,34 @@ namespace io.fusionauth {
     Task<ClientResponse<EmailTemplateResponse>> UpdateEmailTemplateAsync(Guid? emailTemplateId, EmailTemplateRequest request);
 
     /// <summary>
+    /// Updates the form with the given Id.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="formId"> The Id of the form to update.</param>
+    /// <param name="request"> The request object that contains all of the new form information.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<FormResponse>> UpdateFormAsync(Guid? formId, FormRequest request);
+
+    /// <summary>
+    /// Updates the form field with the given Id.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="fieldId"> The Id of the form field to update.</param>
+    /// <param name="request"> The request object that contains all of the new form field information.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<FormFieldResponse>> UpdateFormFieldAsync(Guid? fieldId, FormFieldRequest request);
+
+    /// <summary>
     /// Updates the group with the given Id.
     /// This is an asynchronous method.
     /// </summary>
@@ -3079,6 +3211,32 @@ namespace io.fusionauth {
    ClientResponse<FamilyResponse> CreateFamily(Guid? familyId, FamilyRequest request);
 
    /// <summary>
+   /// Creates a form.  You can optionally specify an Id for the form, if not provided one will be generated.
+   /// </summary>
+   /// <param name="formId"> (Optional) The Id for the form. If not provided a secure random UUID will be generated.</param>
+   /// <param name="request"> The request object that contains all of the information used to create the form.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<FormResponse> CreateForm(Guid? formId, FormRequest request);
+
+   /// <summary>
+   /// Creates a form field.  You can optionally specify an Id for the form, if not provided one will be generated.
+   /// </summary>
+   /// <param name="fieldId"> (Optional) The Id for the form field. If not provided a secure random UUID will be generated.</param>
+   /// <param name="request"> The request object that contains all of the information used to create the form field.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<FormFieldResponse> CreateFormField(Guid? fieldId, FormFieldRequest request);
+
+   /// <summary>
    /// Creates a group. You can optionally specify an Id for the group, if not provided one will be generated.
    /// </summary>
    /// <param name="groupId"> (Optional) The Id for the group. If not provided a secure random UUID will be generated.</param>
@@ -3347,6 +3505,30 @@ namespace io.fusionauth {
    /// IOException.
    /// </returns>
    ClientResponse<RESTVoid> DeleteEmailTemplate(Guid? emailTemplateId);
+
+   /// <summary>
+   /// Deletes the form for the given Id.
+   /// </summary>
+   /// <param name="formId"> The Id of the form to delete.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<RESTVoid> DeleteForm(Guid? formId);
+
+   /// <summary>
+   /// Deletes the form field for the given Id.
+   /// </summary>
+   /// <param name="fieldId"> The Id of the form field to delete.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<RESTVoid> DeleteFormField(Guid? fieldId);
 
    /// <summary>
    /// Deletes the group for the given Id.
@@ -4402,6 +4584,52 @@ namespace io.fusionauth {
    ClientResponse<FamilyResponse> RetrieveFamilyMembersByFamilyId(Guid? familyId);
 
    /// <summary>
+   /// Retrieves the form with the given Id.
+   /// </summary>
+   /// <param name="formId"> The Id of the form.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<FormResponse> RetrieveForm(Guid? formId);
+
+   /// <summary>
+   /// Retrieves the form field with the given Id.
+   /// </summary>
+   /// <param name="fieldId"> The Id of the form field.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<FormFieldResponse> RetrieveFormField(Guid? fieldId);
+
+   /// <summary>
+   /// Retrieves all of the forms fields
+   /// </summary>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<FormFieldResponse> RetrieveFormFields();
+
+   /// <summary>
+   /// Retrieves all of the forms.
+   /// </summary>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<FormResponse> RetrieveForms();
+
+   /// <summary>
    /// Retrieves the group for the given Id.
    /// </summary>
    /// <param name="groupId"> The Id of the group.</param>
@@ -5331,6 +5559,32 @@ namespace io.fusionauth {
    /// IOException.
    /// </returns>
    ClientResponse<EmailTemplateResponse> UpdateEmailTemplate(Guid? emailTemplateId, EmailTemplateRequest request);
+
+   /// <summary>
+   /// Updates the form with the given Id.
+   /// </summary>
+   /// <param name="formId"> The Id of the form to update.</param>
+   /// <param name="request"> The request object that contains all of the new form information.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<FormResponse> UpdateForm(Guid? formId, FormRequest request);
+
+   /// <summary>
+   /// Updates the form field with the given Id.
+   /// </summary>
+   /// <param name="fieldId"> The Id of the form field to update.</param>
+   /// <param name="request"> The request object that contains all of the new form field information.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<FormFieldResponse> UpdateFormField(Guid? fieldId, FormFieldRequest request);
 
    /// <summary>
    /// Updates the group with the given Id.
