@@ -29,6 +29,8 @@ namespace io.fusionauth.domain.form {
 
     public bool? confirm;
 
+    public Guid? consentId;
+
     public FormControl control;
 
     public Dictionary<string, object> data;

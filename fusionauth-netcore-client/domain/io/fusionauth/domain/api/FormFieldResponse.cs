@@ -28,7 +28,9 @@ namespace io.fusionauth.domain.api {
    */
   public class FormFieldResponse {
 
-    public FormField formField;
+    public FormField field;
+
+    public List<FormField> fields;
 
     public FormFieldResponse with(Action<FormFieldResponse> action) {
       action(this);

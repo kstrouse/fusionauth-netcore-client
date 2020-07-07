@@ -15,20 +15,26 @@
  */
 
 
+using io.fusionauth.domain.form;
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain.form {
+namespace io.fusionauth.domain.api {
 
   /**
-   * @author Daniel DeGroff
+   * The FormField API request object.
+   *
+   * @author Brett Guy
    */
-  public enum FormDataType {
-        Boolean, 
-        Consent, 
-        Date, 
-        Email, 
-        Number, 
-        String
+  public class FormFieldRequest {
+
+    public FormField field;
+
+    public List<FormField> fields;
+
+    public FormFieldRequest with(Action<FormFieldRequest> action) {
+      action(this);
+      return this;
+    }
   }
 }
