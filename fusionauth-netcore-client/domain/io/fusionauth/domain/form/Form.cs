@@ -33,7 +33,7 @@ namespace io.fusionauth.domain.form {
 
     public string name;
 
-    public List<Guid> steps;
+    public List<FormStep> steps;
 
     public FormType type;
 
