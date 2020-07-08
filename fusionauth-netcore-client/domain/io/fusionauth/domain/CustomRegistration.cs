@@ -20,27 +20,11 @@ using System;
 
 namespace io.fusionauth.domain {
 
-  public class RegistrationConfiguration: Enableable {
+  public class CustomRegistration: Enableable {
 
-    public Requirable birthDate;
+    public Guid? formId;
 
-    public bool? confirmPassword;
-
-    public CustomRegistration custom;
-
-    public Requirable firstName;
-
-    public Requirable fullName;
-
-    public Requirable lastName;
-
-    public LoginIdType loginIdType;
-
-    public Requirable middleName;
-
-    public Requirable mobilePhone;
-
-    public RegistrationConfiguration with(Action<RegistrationConfiguration> action) {
+    public CustomRegistration with(Action<CustomRegistration> action) {
       action(this);
       return this;
     }
