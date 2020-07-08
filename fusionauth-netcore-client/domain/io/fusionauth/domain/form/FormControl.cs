@@ -24,12 +24,12 @@ namespace io.fusionauth.domain.form {
    * @author Daniel DeGroff
    */
   public enum FormControl {
-        Checkbox, 
-        Number, 
-        Password, 
-        Radio, 
-        Select, 
-        TextArea, 
-        Text
+        checkbox, 
+        number, 
+        password, 
+        radio, 
+        select, 
+        textarea, 
+        text
   }
 }

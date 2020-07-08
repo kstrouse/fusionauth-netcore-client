@@ -24,11 +24,11 @@ namespace io.fusionauth.domain.form {
    * @author Daniel DeGroff
    */
   public enum FormDataType {
-        Boolean, 
-        Consent, 
-        Date, 
-        Email, 
-        Number, 
-        String
+        bool, 
+        consent, 
+        date, 
+        email, 
+        number, 
+        string
   }
 }

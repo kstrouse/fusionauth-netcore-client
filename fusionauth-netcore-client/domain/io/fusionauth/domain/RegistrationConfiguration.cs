@@ -26,9 +26,9 @@ namespace io.fusionauth.domain {
 
     public bool? confirmPassword;
 
-    public CustomRegistration custom;
-
     public Requirable firstName;
+
+    public Guid? formId;
 
     public Requirable fullName;
 
@@ -39,6 +39,8 @@ namespace io.fusionauth.domain {
     public Requirable middleName;
 
     public Requirable mobilePhone;
+
+    public RegistrationType type;
 
     public RegistrationConfiguration with(Action<RegistrationConfiguration> action) {
       action(this);
