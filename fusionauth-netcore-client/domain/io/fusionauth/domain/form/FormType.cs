@@ -24,6 +24,6 @@ namespace io.fusionauth.domain.form {
    * @author Daniel DeGroff
    */
   public enum FormType {
-        Registration
+        registration
   }
 }
