@@ -31,6 +31,8 @@ namespace io.fusionauth.domain.connector {
 
     public DateTimeOffset? insertInstant;
 
+    public DateTimeOffset? lastUpdateInstant;
+
     public string name;
 
     public ConnectorType type;

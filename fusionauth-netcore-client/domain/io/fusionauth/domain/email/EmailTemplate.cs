@@ -40,6 +40,10 @@ namespace io.fusionauth.domain.email {
 
     public Guid? id;
 
+    public DateTimeOffset? insertInstant;
+
+    public DateTimeOffset? lastUpdateInstant;
+
     public LocalizedStrings localizedFromNames;
 
     public LocalizedStrings localizedHtmlTemplates;

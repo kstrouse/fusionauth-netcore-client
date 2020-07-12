@@ -46,9 +46,13 @@ namespace io.fusionauth.domain {
 
     public Guid? id;
 
+    public DateTimeOffset? insertInstant;
+
     public string issuer;
 
     public JWTConfiguration jwtConfiguration;
+
+    public DateTimeOffset? lastUpdateInstant;
 
     public string logoutURL;
 

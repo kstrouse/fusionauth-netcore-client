@@ -54,6 +54,8 @@ namespace io.fusionauth.domain {
 
     public string lastName;
 
+    public DateTimeOffset? lastUpdateInstant;
+
     public List<GroupMember> memberships;
 
     public string middleName;

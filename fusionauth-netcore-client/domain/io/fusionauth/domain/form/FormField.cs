@@ -43,6 +43,8 @@ namespace io.fusionauth.domain.form {
 
     public string key;
 
+    public DateTimeOffset? lastUpdateInstant;
+
     public string name;
 
     public List<string> options;

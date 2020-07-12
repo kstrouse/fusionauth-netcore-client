@@ -31,6 +31,8 @@ namespace io.fusionauth.domain.form {
 
     public DateTimeOffset? insertInstant;
 
+    public DateTimeOffset? lastUpdateInstant;
+
     public string name;
 
     public List<FormStep> steps;

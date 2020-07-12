@@ -41,6 +41,8 @@ namespace io.fusionauth.domain {
 
     public DateTimeOffset? lastLoginInstant;
 
+    public DateTimeOffset? lastUpdateInstant;
+
     public List<string> preferredLanguages;
 
     public List<string> roles;
