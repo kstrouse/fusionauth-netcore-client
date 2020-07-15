@@ -34,8 +34,6 @@ namespace io.fusionauth.domain {
 
     public Guid? cleanSpeakId;
 
-    public Guid? connectorId;
-
     public Dictionary<string, object> data;
 
     public string email;
@@ -49,8 +47,6 @@ namespace io.fusionauth.domain {
     public string imageUrl;
 
     public DateTimeOffset? insertInstant;
-
-    public DateTimeOffset? lastLoginInstant;
 
     public string lastName;
 
@@ -71,16 +67,6 @@ namespace io.fusionauth.domain {
     public Guid? tenantId;
 
     public string timezone;
-
-    public TwoFactorDelivery twoFactorDelivery;
-
-    public bool? twoFactorEnabled;
-
-    public string twoFactorSecret;
-
-    public string username;
-
-    public ContentStatus usernameStatus;
 
     public User with(Action<User> action) {
       action(this);
