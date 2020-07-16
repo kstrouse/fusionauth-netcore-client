@@ -25,9 +25,9 @@ namespace io.fusionauth.domain.connector {
    *
    * @author Trevor Smith
    */
-  public class FusionAuthConnector: BaseConnector {
+  public class FusionAuthConnectorConfiguration: BaseConnectorConfiguration {
 
-    public FusionAuthConnector with(Action<FusionAuthConnector> action) {
+    public FusionAuthConnectorConfiguration with(Action<FusionAuthConnectorConfiguration> action) {
       action(this);
       return this;
     }

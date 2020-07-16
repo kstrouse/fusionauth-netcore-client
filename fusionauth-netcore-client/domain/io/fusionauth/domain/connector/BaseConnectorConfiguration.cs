@@ -21,7 +21,7 @@ using System;
 namespace io.fusionauth.domain.connector {
 
   // Do not require a setter for 'type', it is defined by the concrete class and is not mutable
-  public class BaseConnector {
+  public class BaseConnectorConfiguration {
 
     public Dictionary<string, object> data;
 
@@ -37,7 +37,7 @@ namespace io.fusionauth.domain.connector {
 
     public ConnectorType type;
 
-    public BaseConnector with(Action<BaseConnector> action) {
+    public BaseConnectorConfiguration with(Action<BaseConnectorConfiguration> action) {
       action(this);
       return this;
     }

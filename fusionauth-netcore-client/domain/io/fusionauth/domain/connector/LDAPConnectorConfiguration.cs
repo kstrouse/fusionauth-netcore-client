@@ -15,36 +15,42 @@
  */
 
 
-using io.fusionauth.domain;
+using io.fusionauth.domain.provider;
 using System.Collections.Generic;
 using System;
 
 namespace io.fusionauth.domain.connector {
 
   /**
-   * Models a generic connector.
+   * Models an LDAP connector.
    *
    * @author Trevor Smith
    */
-  public class GenericConnector: BaseConnector {
+  public class LDAPConnectorConfiguration: BaseConnectorConfiguration {
 
     public string authenticationURL;
 
+    public string baseStructure;
+
     public int? connectTimeout;
 
-    public HTTPHeaders headers;
+    public string emailAttribute;
 
-    public string httpAuthenticationPassword;
+    public string identifyingAttribute;
 
-    public string httpAuthenticationUsername;
+    public LambdaConfiguration lambdaConfiguration;
 
     public int? readTimeout;
 
-    public string retrieveUserURL;
+    public List<string> requestedAttributes;
 
-    public Guid? sslCertificateKeyId;
+    public LDAPSecurityMethod securityMethod;
 
-    public GenericConnector with(Action<GenericConnector> action) {
+    public string systemAccountDN;
+
+    public string systemAccountPassword;
+
+    public LDAPConnectorConfiguration with(Action<LDAPConnectorConfiguration> action) {
       action(this);
       return this;
     }

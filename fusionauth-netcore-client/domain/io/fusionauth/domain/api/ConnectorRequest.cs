@@ -26,7 +26,7 @@ namespace io.fusionauth.domain.api {
    */
   public class ConnectorRequest {
 
-    public BaseConnector connector;
+    public BaseConnectorConfiguration connector;
 
     public ConnectorRequest with(Action<ConnectorRequest> action) {
       action(this);

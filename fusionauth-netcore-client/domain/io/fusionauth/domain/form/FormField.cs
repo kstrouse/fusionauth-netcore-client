@@ -25,8 +25,6 @@ namespace io.fusionauth.domain.form {
    */
   public class FormField {
 
-    public List<FormFieldAdminPolicy> admin;
-
     public bool? confirm;
 
     public Guid? consentId;
