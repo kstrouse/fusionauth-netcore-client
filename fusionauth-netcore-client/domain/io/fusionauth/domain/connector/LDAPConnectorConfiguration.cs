@@ -34,11 +34,11 @@ namespace io.fusionauth.domain.connector {
 
     public int? connectTimeout;
 
-    public string loginIdAttribute;
-
     public string identifyingAttribute;
 
     public LambdaConfiguration lambdaConfiguration;
+
+    public string loginIdAttribute;
 
     public int? readTimeout;
 
