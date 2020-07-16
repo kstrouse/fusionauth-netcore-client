@@ -34,12 +34,6 @@ namespace io.fusionauth.domain {
         HS384, 
         [EnumMember(Value = "HmacSHA512")]
         HS512, 
-        [EnumMember(Value = "SHA-256")]
-        PS256, 
-        [EnumMember(Value = "SHA-384")]
-        PS384, 
-        [EnumMember(Value = "SHA-512")]
-        PS512, 
         [EnumMember(Value = "SHA256withRSA")]
         RS256, 
         [EnumMember(Value = "SHA384withRSA")]
