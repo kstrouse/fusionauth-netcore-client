@@ -7,9 +7,9 @@
     <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.13.0/build/netcoreapp1.0/NUnit3.TestAdapter.dll" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.13.0/build/netcoreapp1.0/NUnit3.TestAdapter.pdb" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.13.0/build/netcoreapp1.0/nunit.engine.netstandard.dll" t="Include" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_fusionauth-netcore-client.-217816243.00" t="ExcludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.1/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.1/resharper-host/local/Transient/ReSharperHost/v201/SolutionCaches/_fusionauth-netcore-client.-217816243.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="domain" t="Include">
@@ -41,6 +41,7 @@
               <e p="Consent.cs" t="Include" />
               <e p="ConsentStatus.cs" t="Include" />
               <e p="ContentStatus.cs" t="Include" />
+              <e p="CustomRegistration.cs" t="Include" />
               <e p="DeleteConfiguration.cs" t="Include" />
               <e p="DisplayableRawLogin.cs" t="Include" />
               <e p="EmailConfiguration.cs" t="Include" />
@@ -88,9 +89,14 @@
               <e p="PasswordValidationRules.cs" t="Include" />
               <e p="PasswordlessConfiguration.cs" t="Include" />
               <e p="RawLogin.cs" t="Include" />
+              <e p="RefreshTokenExpirationPolicy.cs" t="Include" />
+              <e p="RefreshTokenRevocationPolicy.cs" t="Include" />
+              <e p="RefreshTokenUsagePolicy.cs" t="Include" />
               <e p="RegistrationConfiguration.cs" t="Include" />
+              <e p="RegistrationType.cs" t="Include" />
               <e p="RememberPreviousPasswords.cs" t="Include" />
               <e p="Requirable.cs" t="Include" />
+              <e p="RequiresCORSConfiguration.cs" t="Include" />
               <e p="SAMLv2Configuration.cs" t="Include" />
               <e p="SecureGeneratorConfiguration.cs" t="Include" />
               <e p="SecureGeneratorType.cs" t="Include" />
@@ -126,6 +132,8 @@
                 <e p="AuditLogSearchResponse.cs" t="Include" />
                 <e p="BaseExportRequest.cs" t="Include" />
                 <e p="BaseLoginRequest.cs" t="Include" />
+                <e p="ConnectorRequest.cs" t="Include" />
+                <e p="ConnectorResponse.cs" t="Include" />
                 <e p="ConsentRequest.cs" t="Include" />
                 <e p="ConsentResponse.cs" t="Include" />
                 <e p="EmailTemplateRequest.cs" t="Include" />
@@ -136,6 +144,10 @@
                 <e p="FamilyEmailRequest.cs" t="Include" />
                 <e p="FamilyRequest.cs" t="Include" />
                 <e p="FamilyResponse.cs" t="Include" />
+                <e p="FormFieldRequest.cs" t="Include" />
+                <e p="FormFieldResponse.cs" t="Include" />
+                <e p="FormRequest.cs" t="Include" />
+                <e p="FormResponse.cs" t="Include" />
                 <e p="GroupRequest.cs" t="Include" />
                 <e p="GroupResponse.cs" t="Include" />
                 <e p="IdentityProviderRequest.cs" t="Include" />
@@ -163,6 +175,7 @@
                 <e p="PublicKeyResponse.cs" t="Include" />
                 <e p="SystemConfigurationRequest.cs" t="Include" />
                 <e p="SystemConfigurationResponse.cs" t="Include" />
+                <e p="SystemLogsExportRequest.cs" t="Include" />
                 <e p="TenantRequest.cs" t="Include" />
                 <e p="TenantResponse.cs" t="Include" />
                 <e p="ThemeRequest.cs" t="Include" />
@@ -241,6 +254,16 @@
                   <e p="VerifyRegistrationResponse.cs" t="Include" />
                 </e>
               </e>
+              <e p="connector" t="Include">
+                <e p="BaseConnectorConfiguration.cs" t="Include" />
+                <e p="ConnectorPolicy.cs" t="Include" />
+                <e p="ConnectorType.cs" t="Include" />
+                <e p="FusionAuthConnectorConfiguration.cs" t="Include" />
+                <e p="GenericConnectorConfiguration.cs" t="Include" />
+                <e p="LDAPConnectorConfiguration.cs" t="Include" />
+                <e p="LDAPSecurityMethod.cs" t="Include" />
+                <e p="LambdaConfiguration.cs" t="Include" />
+              </e>
               <e p="email" t="Include">
                 <e p="Attachment.cs" t="Include" />
                 <e p="Email.cs" t="Include" />
@@ -253,6 +276,7 @@
                 <e p="EventRequest.cs" t="Include" />
                 <e p="EventType.cs" t="Include" />
                 <e p="JWTPublicKeyUpdateEvent.cs" t="Include" />
+                <e p="JWTRefreshEvent.cs" t="Include" />
                 <e p="JWTRefreshTokenRevokeEvent.cs" t="Include" />
                 <e p="TestEvent.cs" t="Include" />
                 <e p="UserActionEvent.cs" t="Include" />
@@ -271,6 +295,19 @@
                 <e p="UserRegistrationUpdateEvent.cs" t="Include" />
                 <e p="UserRegistrationVerifiedEvent.cs" t="Include" />
                 <e p="UserUpdateEvent.cs" t="Include" />
+              </e>
+              <e p="form" t="Include">
+                <e p="Form.cs" t="Include" />
+                <e p="FormControl.cs" t="Include" />
+                <e p="FormDataType.cs" t="Include" />
+                <e p="FormField.cs" t="Include" />
+                <e p="FormFieldAdminPolicy.cs" t="Include" />
+                <e p="FormFieldValidator.cs" t="Include" />
+                <e p="FormStep.cs" t="Include" />
+                <e p="FormType.cs" t="Include" />
+              </e>
+              <e p="jwks" t="Include">
+                <e p="JSONWebKeyInfoProvider.cs" t="Include" />
               </e>
               <e p="jwt" t="Include">
                 <e p="DeviceInfo.cs" t="Include" />
@@ -295,6 +332,8 @@
                 <e p="UserinfoResponse.cs" t="Include" />
               </e>
               <e p="provider" t="Include">
+                <e p="AppleApplicationConfiguration.cs" t="Include" />
+                <e p="AppleIdentityProvider.cs" t="Include" />
                 <e p="BaseIdentityProvider.cs" t="Include" />
                 <e p="BaseIdentityProviderApplicationConfiguration.cs" t="Include" />
                 <e p="ClientAuthenticationMethod.cs" t="Include" />

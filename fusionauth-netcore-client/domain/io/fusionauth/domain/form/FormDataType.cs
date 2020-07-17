@@ -15,6 +15,7 @@
  */
 
 
+using System.Runtime.Serialization;
 using System.Collections.Generic;
 using System;
 
@@ -24,11 +25,17 @@ namespace io.fusionauth.domain.form {
    * @author Daniel DeGroff
    */
   public enum FormDataType {
-        bool, 
-        consent, 
-        date, 
-        email, 
-        number, 
-        string
+        [EnumMember(Value = "bool")]
+         Bool, 
+        [EnumMember(Value = "consent")]
+         Consent, 
+        [EnumMember(Value = "date")]
+         Date, 
+        [EnumMember(Value = "email")]
+         Email, 
+        [EnumMember(Value = "number")]
+         Number, 
+        [EnumMember(Value = "string")]
+         String
   }
 }
