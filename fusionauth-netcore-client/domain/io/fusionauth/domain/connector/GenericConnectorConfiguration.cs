@@ -40,8 +40,6 @@ namespace io.fusionauth.domain.connector {
 
     public int? readTimeout;
 
-    public string retrieveUserURL;
-
     public Guid? sslCertificateKeyId;
 
     public GenericConnectorConfiguration with(Action<GenericConnectorConfiguration> action) {
