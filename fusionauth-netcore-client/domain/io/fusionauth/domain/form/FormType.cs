@@ -15,6 +15,7 @@
  */
 
 
+using System.Runtime.Serialization;
 using System.Collections.Generic;
 using System;
 
@@ -24,6 +25,11 @@ namespace io.fusionauth.domain.form {
    * @author Daniel DeGroff
    */
   public enum FormType {
-        registration
+        [EnumMember(Value = "")]
+        registration, 
+        [EnumMember(Value = "registration.")]
+        adminRegistrationEdit, 
+        [EnumMember(Value = "user.")]
+        adminUserEdit
   }
 }

@@ -70,6 +70,8 @@ namespace io.fusionauth.domain {
 
     public TenantUserDeletePolicy userDeletePolicy;
 
+    public Guid? userEditFormId;
+
     public Tenant with(Action<Tenant> action) {
       action(this);
       return this;
