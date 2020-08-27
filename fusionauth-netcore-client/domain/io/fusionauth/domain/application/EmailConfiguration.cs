@@ -15,39 +15,26 @@
  */
 
 
+using io.fusionauth.domain;
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain {
+namespace io.fusionauth.domain.application {
 
   /**
-   * @author Brian Pontarelli
+   * @author Daniel DeGroff
    */
-  public class SystemConfiguration {
+  public class EmailConfiguration {
 
-    public AuditLogConfiguration auditLogConfiguration;
+    public Guid? emailVerificationEmailTemplateId;
 
-    public string cookieEncryptionKey;
+    public Guid? forgotPasswordEmailTemplateId;
 
-    public CORSConfiguration corsConfiguration;
+    public Guid? passwordlessEmailTemplateId;
 
-    public Dictionary<string, object> data;
+    public Guid? setPasswordEmailTemplateId;
 
-    public EventLogConfiguration @eventLogConfiguration;
-
-    public DateTimeOffset? insertInstant;
-
-    public DateTimeOffset? lastUpdateInstant;
-
-    public LoginRecordConfiguration loginRecordConfiguration;
-
-    public string reportTimezone;
-
-    public StatusConfiguration statusConfiguration;
-
-    public UIConfiguration uiConfiguration;
-
-    public SystemConfiguration with(Action<SystemConfiguration> action) {
+    public EmailConfiguration with(Action<EmailConfiguration> action) {
       action(this);
       return this;
     }
