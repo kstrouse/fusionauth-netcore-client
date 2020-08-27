@@ -20,17 +20,11 @@ using System;
 
 namespace io.fusionauth.domain {
 
-  public class EmailConfiguration {
+  public class StatusConfiguration {
 
-    public Guid? emailVerificationEmailTemplateId;
+    public bool? requireAuthentication;
 
-    public Guid? forgotPasswordEmailTemplateId;
-
-    public Guid? passwordlessEmailTemplateId;
-
-    public Guid? setPasswordEmailTemplateId;
-
-    public EmailConfiguration with(Action<EmailConfiguration> action) {
+    public StatusConfiguration with(Action<StatusConfiguration> action) {
       action(this);
       return this;
     }

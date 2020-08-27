@@ -35,6 +35,8 @@ namespace io.fusionauth.domain {
 
     public Dictionary<string, object> data;
 
+    public EmailConfiguration emailConfiguration;
+
     public Guid? id;
 
     public DateTimeOffset? insertInstant;
