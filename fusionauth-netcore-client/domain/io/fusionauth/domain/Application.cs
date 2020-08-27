@@ -35,7 +35,7 @@ namespace io.fusionauth.domain {
 
     public Dictionary<string, object> data;
 
-    public EmailConfiguration emailConfiguration;
+    public ApplicationEmailConfiguration emailConfiguration;
 
     public Guid? id;
 

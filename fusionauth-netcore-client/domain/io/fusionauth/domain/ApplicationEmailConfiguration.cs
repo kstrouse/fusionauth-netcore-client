@@ -15,16 +15,12 @@
  */
 
 
-using io.fusionauth.domain;
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain.application {
+namespace io.fusionauth.domain {
 
-  /**
-   * @author Daniel DeGroff
-   */
-  public class EmailConfiguration {
+  public class ApplicationEmailConfiguration {
 
     public Guid? emailVerificationEmailTemplateId;
 
@@ -34,7 +30,7 @@ namespace io.fusionauth.domain.application {
 
     public Guid? setPasswordEmailTemplateId;
 
-    public EmailConfiguration with(Action<EmailConfiguration> action) {
+    public ApplicationEmailConfiguration with(Action<ApplicationEmailConfiguration> action) {
       action(this);
       return this;
     }
