@@ -721,7 +721,7 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
-    public Task<ClientResponse<RESTVoid>> ImportUserRefreshTokensAsync(RefreshTokenImportRequest request) {
+    public Task<ClientResponse<RESTVoid>> ImportRefreshTokensAsync(RefreshTokenImportRequest request) {
       return buildClient()
           .withUri("/api/user/refresh-token/import")
           .withJSONBody(request)

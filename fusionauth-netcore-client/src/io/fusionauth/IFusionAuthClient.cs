@@ -968,9 +968,14 @@ namespace io.fusionauth {
     Task<ClientResponse<KeyResponse>> ImportKeyAsync(Guid? keyId, KeyRequest request);
 
     /// <summary>
-    /// Bulk imports refresh tokens. This does some validation, but then tries to run batch inserts of refresh tokens. This reduces
-    /// latency when inserting lots of refresh tokens. Therefore, the error response might contain some information about failures,
-    /// but it will likely be pretty generic.
+    /// Bulk imports refresh tokens. This request performs minimal validation and runs batch inserts of refresh tokens with the
+    /// expectation that each token represents a user that already exists and is registered for the corresponding FusionAuth
+    /// Application. This is done to increases the insert performance.
+    /// 
+    /// Therefore, if you encounter an error due to a database key violation, the response will likely offer a generic
+    /// explanation. If you encounter an error, you may optionally enable additional validation to receive a JSON response
+    /// body with specific validation errors. This will slow the request down but will allow you to identify the cause of
+    /// the failure. See the validateDbConstraints request parameter.
     /// This is an asynchronous method.
     /// </summary>
     /// <param name="request"> The request that contains all of the information about all of the refresh tokens to import.</param>
@@ -980,12 +985,17 @@ namespace io.fusionauth {
     /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
     /// IOException.
     /// </returns>
-    Task<ClientResponse<RESTVoid>> ImportUserRefreshTokensAsync(RefreshTokenImportRequest request);
+    Task<ClientResponse<RESTVoid>> ImportRefreshTokensAsync(RefreshTokenImportRequest request);
 
     /// <summary>
-    /// Bulk imports multiple users. This does some validation, but then tries to run batch inserts of users. This reduces
-    /// latency when inserting lots of users. Therefore, the error response might contain some information about failures,
-    /// but it will likely be pretty generic.
+    /// Bulk imports users. This request performs minimal validation and runs batch inserts of users with the expectation
+    /// that each user does not yet exist and each registration corresponds to an existing FusionAuth Application. This is done to
+    /// increases the insert performance.
+    /// 
+    /// Therefore, if you encounter an error due to a database key violation, the response will likely offer
+    /// a generic explanation. If you encounter an error, you may optionally enable additional validation to receive a JSON response
+    /// body with specific validation errors. This will slow the request down but will allow you to identify the cause of the failure. See
+    /// the validateDbConstraints request parameter.
     /// This is an asynchronous method.
     /// </summary>
     /// <param name="request"> The request that contains all of the information about all of the users to import.</param>
@@ -3921,9 +3931,14 @@ namespace io.fusionauth {
    ClientResponse<KeyResponse> ImportKey(Guid? keyId, KeyRequest request);
 
    /// <summary>
-   /// Bulk imports refresh tokens. This does some validation, but then tries to run batch inserts of refresh tokens. This reduces
-   /// latency when inserting lots of refresh tokens. Therefore, the error response might contain some information about failures,
-   /// but it will likely be pretty generic.
+   /// Bulk imports refresh tokens. This request performs minimal validation and runs batch inserts of refresh tokens with the
+   /// expectation that each token represents a user that already exists and is registered for the corresponding FusionAuth
+   /// Application. This is done to increases the insert performance.
+   /// 
+   /// Therefore, if you encounter an error due to a database key violation, the response will likely offer a generic
+   /// explanation. If you encounter an error, you may optionally enable additional validation to receive a JSON response
+   /// body with specific validation errors. This will slow the request down but will allow you to identify the cause of
+   /// the failure. See the validateDbConstraints request parameter.
    /// </summary>
    /// <param name="request"> The request that contains all of the information about all of the refresh tokens to import.</param>
    /// <returns>
@@ -3932,12 +3947,17 @@ namespace io.fusionauth {
    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
    /// IOException.
    /// </returns>
-   ClientResponse<RESTVoid> ImportUserRefreshTokens(RefreshTokenImportRequest request);
+   ClientResponse<RESTVoid> ImportRefreshTokens(RefreshTokenImportRequest request);
 
    /// <summary>
-   /// Bulk imports multiple users. This does some validation, but then tries to run batch inserts of users. This reduces
-   /// latency when inserting lots of users. Therefore, the error response might contain some information about failures,
-   /// but it will likely be pretty generic.
+   /// Bulk imports users. This request performs minimal validation and runs batch inserts of users with the expectation
+   /// that each user does not yet exist and each registration corresponds to an existing FusionAuth Application. This is done to
+   /// increases the insert performance.
+   /// 
+   /// Therefore, if you encounter an error due to a database key violation, the response will likely offer
+   /// a generic explanation. If you encounter an error, you may optionally enable additional validation to receive a JSON response
+   /// body with specific validation errors. This will slow the request down but will allow you to identify the cause of the failure. See
+   /// the validateDbConstraints request parameter.
    /// </summary>
    /// <param name="request"> The request that contains all of the information about all of the users to import.</param>
    /// <returns>
