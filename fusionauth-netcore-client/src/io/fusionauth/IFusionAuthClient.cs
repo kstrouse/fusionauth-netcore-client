@@ -968,6 +968,21 @@ namespace io.fusionauth {
     Task<ClientResponse<KeyResponse>> ImportKeyAsync(Guid? keyId, KeyRequest request);
 
     /// <summary>
+    /// Bulk imports refresh tokens. This does some validation, but then tries to run batch inserts of refresh tokens. This reduces
+    /// latency when inserting lots of refresh tokens. Therefore, the error response might contain some information about failures,
+    /// but it will likely be pretty generic.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="request"> The request that contains all of the information about all of the refresh tokens to import.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<RESTVoid>> ImportUserRefreshTokensAsync(RefreshTokenImportRequest request);
+
+    /// <summary>
     /// Bulk imports multiple users. This does some validation, but then tries to run batch inserts of users. This reduces
     /// latency when inserting lots of users. Therefore, the error response might contain some information about failures,
     /// but it will likely be pretty generic.
@@ -3904,6 +3919,20 @@ namespace io.fusionauth {
    /// IOException.
    /// </returns>
    ClientResponse<KeyResponse> ImportKey(Guid? keyId, KeyRequest request);
+
+   /// <summary>
+   /// Bulk imports refresh tokens. This does some validation, but then tries to run batch inserts of refresh tokens. This reduces
+   /// latency when inserting lots of refresh tokens. Therefore, the error response might contain some information about failures,
+   /// but it will likely be pretty generic.
+   /// </summary>
+   /// <param name="request"> The request that contains all of the information about all of the refresh tokens to import.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<RESTVoid> ImportUserRefreshTokens(RefreshTokenImportRequest request);
 
    /// <summary>
    /// Bulk imports multiple users. This does some validation, but then tries to run batch inserts of users. This reduces
