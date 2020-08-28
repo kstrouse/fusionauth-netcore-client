@@ -43,8 +43,6 @@ namespace io.fusionauth.domain {
 
     public string reportTimezone;
 
-    public StatusConfiguration statusConfiguration;
-
     public UIConfiguration uiConfiguration;
 
     public SystemConfiguration with(Action<SystemConfiguration> action) {
