@@ -721,6 +721,15 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public Task<ClientResponse<RESTVoid>> ImportRefreshTokensAsync(RefreshTokenImportRequest request) {
+      return buildClient()
+          .withUri("/api/user/refresh-token/import")
+          .withJSONBody(request)
+          .withMethod("Post")
+          .goAsync<RESTVoid>();
+    }
+
+    /// <inheritdoc/>
     public Task<ClientResponse<RESTVoid>> ImportUsersAsync(ImportRequest request) {
       return buildClient()
           .withUri("/api/user/import")
@@ -1039,6 +1048,16 @@ namespace io.fusionauth {
     public Task<ClientResponse<VerifyEmailResponse>> ResendEmailVerificationAsync(string email) {
       return buildClient()
           .withUri("/api/user/verify-email")
+          .withParameter("email", email)
+          .withMethod("Put")
+          .goAsync<VerifyEmailResponse>();
+    }
+
+    /// <inheritdoc/>
+    public Task<ClientResponse<VerifyEmailResponse>> ResendEmailVerificationWithApplicationTemplateAsync(Guid? applicationId, string email) {
+      return buildClient()
+          .withUri("/api/user/verify-email")
+          .withParameter("applicationId", applicationId)
           .withParameter("email", email)
           .withMethod("Put")
           .goAsync<VerifyEmailResponse>();

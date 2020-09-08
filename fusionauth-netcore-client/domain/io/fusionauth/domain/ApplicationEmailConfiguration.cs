@@ -15,26 +15,22 @@
  */
 
 
-using io.fusionauth.domain.api;
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain.api.identityProvider {
+namespace io.fusionauth.domain {
 
-  /**
-   * @author Daniel DeGroff
-   */
-  public class IdentityProviderStartLoginRequest: BaseLoginRequest {
+  public class ApplicationEmailConfiguration {
 
-    public Dictionary<string, string> data;
+    public Guid? emailVerificationEmailTemplateId;
 
-    public Guid? identityProviderId;
+    public Guid? forgotPasswordEmailTemplateId;
 
-    public string loginId;
+    public Guid? passwordlessEmailTemplateId;
 
-    public Dictionary<string, object> state;
+    public Guid? setPasswordEmailTemplateId;
 
-    public IdentityProviderStartLoginRequest with(Action<IdentityProviderStartLoginRequest> action) {
+    public ApplicationEmailConfiguration with(Action<ApplicationEmailConfiguration> action) {
       action(this);
       return this;
     }

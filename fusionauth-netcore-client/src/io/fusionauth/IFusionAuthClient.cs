@@ -968,9 +968,34 @@ namespace io.fusionauth {
     Task<ClientResponse<KeyResponse>> ImportKeyAsync(Guid? keyId, KeyRequest request);
 
     /// <summary>
-    /// Bulk imports multiple users. This does some validation, but then tries to run batch inserts of users. This reduces
-    /// latency when inserting lots of users. Therefore, the error response might contain some information about failures,
-    /// but it will likely be pretty generic.
+    /// Bulk imports refresh tokens. This request performs minimal validation and runs batch inserts of refresh tokens with the
+    /// expectation that each token represents a user that already exists and is registered for the corresponding FusionAuth
+    /// Application. This is done to increases the insert performance.
+    /// 
+    /// Therefore, if you encounter an error due to a database key violation, the response will likely offer a generic
+    /// explanation. If you encounter an error, you may optionally enable additional validation to receive a JSON response
+    /// body with specific validation errors. This will slow the request down but will allow you to identify the cause of
+    /// the failure. See the validateDbConstraints request parameter.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="request"> The request that contains all of the information about all of the refresh tokens to import.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<RESTVoid>> ImportRefreshTokensAsync(RefreshTokenImportRequest request);
+
+    /// <summary>
+    /// Bulk imports users. This request performs minimal validation and runs batch inserts of users with the expectation
+    /// that each user does not yet exist and each registration corresponds to an existing FusionAuth Application. This is done to
+    /// increases the insert performance.
+    /// 
+    /// Therefore, if you encounter an error due to a database key violation, the response will likely offer
+    /// a generic explanation. If you encounter an error, you may optionally enable additional validation to receive a JSON response
+    /// body with specific validation errors. This will slow the request down but will allow you to identify the cause of the failure. See
+    /// the validateDbConstraints request parameter.
     /// This is an asynchronous method.
     /// </summary>
     /// <param name="request"> The request that contains all of the information about all of the users to import.</param>
@@ -993,7 +1018,7 @@ namespace io.fusionauth {
     /// <param name="applicationId"> The Application Id for which you are requesting a new access token be issued.</param>
     /// <param name="encodedJWT"> The encoded JWT (access token).</param>
     /// <param name="refreshToken"> (Optional) An existing refresh token used to request a refresh token in addition to a JWT in the response.
-    /// <p>The target application represented by the applicationid request parameter must have refresh 
+    /// <p>The target application represented by the applicationId request parameter must have refresh
     /// tokens enabled in order to receive a refresh token in the response.</p></param>
     /// <returns>
     /// When successful, the response will contain the log of the action. If there was a validation error or any
@@ -1445,6 +1470,21 @@ namespace io.fusionauth {
     /// IOException.
     /// </returns>
     Task<ClientResponse<VerifyEmailResponse>> ResendEmailVerificationAsync(string email);
+
+    /// <summary>
+    /// Re-sends the verification email to the user. If the Application has configured a specific email template this will be used
+    /// instead of the tenant configuration.
+    /// This is an asynchronous method.
+    /// </summary>
+    /// <param name="applicationId"> The unique Application Id to used to resolve an application specific email template.</param>
+    /// <param name="email"> The email address of the user that needs a new verification email.</param>
+    /// <returns>
+    /// When successful, the response will contain the log of the action. If there was a validation error or any
+    /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+    /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+    /// IOException.
+    /// </returns>
+    Task<ClientResponse<VerifyEmailResponse>> ResendEmailVerificationWithApplicationTemplateAsync(Guid? applicationId, string email);
 
     /// <summary>
     /// Re-sends the application registration verification email to the user.
@@ -3906,9 +3946,33 @@ namespace io.fusionauth {
    ClientResponse<KeyResponse> ImportKey(Guid? keyId, KeyRequest request);
 
    /// <summary>
-   /// Bulk imports multiple users. This does some validation, but then tries to run batch inserts of users. This reduces
-   /// latency when inserting lots of users. Therefore, the error response might contain some information about failures,
-   /// but it will likely be pretty generic.
+   /// Bulk imports refresh tokens. This request performs minimal validation and runs batch inserts of refresh tokens with the
+   /// expectation that each token represents a user that already exists and is registered for the corresponding FusionAuth
+   /// Application. This is done to increases the insert performance.
+   /// 
+   /// Therefore, if you encounter an error due to a database key violation, the response will likely offer a generic
+   /// explanation. If you encounter an error, you may optionally enable additional validation to receive a JSON response
+   /// body with specific validation errors. This will slow the request down but will allow you to identify the cause of
+   /// the failure. See the validateDbConstraints request parameter.
+   /// </summary>
+   /// <param name="request"> The request that contains all of the information about all of the refresh tokens to import.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<RESTVoid> ImportRefreshTokens(RefreshTokenImportRequest request);
+
+   /// <summary>
+   /// Bulk imports users. This request performs minimal validation and runs batch inserts of users with the expectation
+   /// that each user does not yet exist and each registration corresponds to an existing FusionAuth Application. This is done to
+   /// increases the insert performance.
+   /// 
+   /// Therefore, if you encounter an error due to a database key violation, the response will likely offer
+   /// a generic explanation. If you encounter an error, you may optionally enable additional validation to receive a JSON response
+   /// body with specific validation errors. This will slow the request down but will allow you to identify the cause of the failure. See
+   /// the validateDbConstraints request parameter.
    /// </summary>
    /// <param name="request"> The request that contains all of the information about all of the users to import.</param>
    /// <returns>
@@ -3929,7 +3993,7 @@ namespace io.fusionauth {
    /// <param name="applicationId"> The Application Id for which you are requesting a new access token be issued.</param>
    /// <param name="encodedJWT"> The encoded JWT (access token).</param>
    /// <param name="refreshToken"> (Optional) An existing refresh token used to request a refresh token in addition to a JWT in the response.
-    /// <p>The target application represented by the applicationid request parameter must have refresh 
+    /// <p>The target application represented by the applicationId request parameter must have refresh
     /// tokens enabled in order to receive a refresh token in the response.</p></param>
    /// <returns>
    /// When successful, the response will contain the log of the action. If there was a validation error or any
@@ -4350,6 +4414,20 @@ namespace io.fusionauth {
    /// IOException.
    /// </returns>
    ClientResponse<VerifyEmailResponse> ResendEmailVerification(string email);
+
+   /// <summary>
+   /// Re-sends the verification email to the user. If the Application has configured a specific email template this will be used
+   /// instead of the tenant configuration.
+   /// </summary>
+   /// <param name="applicationId"> The unique Application Id to used to resolve an application specific email template.</param>
+   /// <param name="email"> The email address of the user that needs a new verification email.</param>
+   /// <returns>
+   /// When successful, the response will contain the log of the action. If there was a validation error or any
+   /// other type of error, this will return the Errors object in the response. Additionally, if FusionAuth could not be
+   /// contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   /// IOException.
+   /// </returns>
+   ClientResponse<VerifyEmailResponse> ResendEmailVerificationWithApplicationTemplate(Guid? applicationId, string email);
 
    /// <summary>
    /// Re-sends the application registration verification email to the user.

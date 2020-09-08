@@ -15,26 +15,24 @@
  */
 
 
-using io.fusionauth.domain.api;
+using io.fusionauth.domain.jwt;
 using System.Collections.Generic;
 using System;
 
-namespace io.fusionauth.domain.api.identityProvider {
+namespace io.fusionauth.domain.api.user {
 
   /**
-   * @author Daniel DeGroff
+   * Refresh Token Import request.
+   *
+   * @author Brett Guy
    */
-  public class IdentityProviderStartLoginRequest: BaseLoginRequest {
+  public class RefreshTokenImportRequest {
 
-    public Dictionary<string, string> data;
+    public List<RefreshToken> refreshTokens;
 
-    public Guid? identityProviderId;
+    public bool? validateDbConstraints;
 
-    public string loginId;
-
-    public Dictionary<string, object> state;
-
-    public IdentityProviderStartLoginRequest with(Action<IdentityProviderStartLoginRequest> action) {
+    public RefreshTokenImportRequest with(Action<RefreshTokenImportRequest> action) {
       action(this);
       return this;
     }

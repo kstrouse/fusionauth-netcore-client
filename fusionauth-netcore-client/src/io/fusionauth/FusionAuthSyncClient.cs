@@ -368,6 +368,11 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public ClientResponse<RESTVoid> ImportRefreshTokens(RefreshTokenImportRequest request) {
+      return client.ImportRefreshTokensAsync(request).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc/>
     public ClientResponse<RESTVoid> ImportUsers(ImportRequest request) {
       return client.ImportUsersAsync(request).GetAwaiter().GetResult();
     }
@@ -530,6 +535,11 @@ namespace io.fusionauth {
     /// <inheritdoc/>
     public ClientResponse<VerifyEmailResponse> ResendEmailVerification(string email) {
       return client.ResendEmailVerificationAsync(email).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc/>
+    public ClientResponse<VerifyEmailResponse> ResendEmailVerificationWithApplicationTemplate(Guid? applicationId, string email) {
+      return client.ResendEmailVerificationWithApplicationTemplateAsync(applicationId, email).GetAwaiter().GetResult();
     }
 
     /// <inheritdoc/>
