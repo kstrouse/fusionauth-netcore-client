@@ -601,6 +601,23 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public Task<ClientResponse<AccessToken>> ExchangeOAuthCodeForAccessTokenUsingPKCEAsync(string code, string client_id, string client_secret, string redirect_uri, string code_verifier) {
+      var body = new Dictionary<string, string> {
+          { "code", code },
+          { "client_id", client_id },
+          { "client_secret", client_secret },
+          { "grant_type", "authorization_code" },
+          { "redirect_uri", redirect_uri },
+          { "code_verifier", code_verifier },
+      };
+      return buildAnonymousClient()
+          .withUri("/oauth2/token")
+          .withFormData(new FormUrlEncodedContent(body))
+          .withMethod("Post")
+          .goAsync<AccessToken>();
+    }
+
+    /// <inheritdoc/>
     public Task<ClientResponse<AccessToken>> ExchangeRefreshTokenForAccessTokenAsync(string refresh_token, string client_id, string client_secret, string scope, string user_code) {
       var body = new Dictionary<string, string> {
           { "refresh_token", refresh_token },
@@ -694,9 +711,9 @@ namespace io.fusionauth {
 
     /// <inheritdoc/>
     public Task<ClientResponse<SecretResponse>> GenerateTwoFactorSecretUsingJWTAsync(string encodedJWT) {
-      return buildClient()
+      return buildAnonymousClient()
           .withUri("/api/two-factor/secret")
-          .withAuthorization("JWT " + encodedJWT)
+          .withAuthorization("Bearer " + encodedJWT)
           .withMethod("Get")
           .goAsync<SecretResponse>();
     }
@@ -739,10 +756,23 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public Task<ClientResponse<IntrospectResponse>> IntrospectAccessTokenAsync(string client_id, string token) {
+      var body = new Dictionary<string, string> {
+          { "client_id", client_id },
+          { "token", token },
+      };
+      return buildAnonymousClient()
+          .withUri("/oauth2/introspect")
+          .withFormData(new FormUrlEncodedContent(body))
+          .withMethod("Post")
+          .goAsync<IntrospectResponse>();
+    }
+
+    /// <inheritdoc/>
     public Task<ClientResponse<IssueResponse>> IssueJWTAsync(Guid? applicationId, string encodedJWT, string refreshToken) {
-      return buildClient()
+      return buildAnonymousClient()
           .withUri("/api/jwt/issue")
-          .withAuthorization("JWT " + encodedJWT)
+          .withAuthorization("Bearer " + encodedJWT)
           .withParameter("applicationId", applicationId)
           .withParameter("refreshToken", refreshToken)
           .withMethod("Get")
@@ -1688,6 +1718,15 @@ namespace io.fusionauth {
     }
 
     /// <inheritdoc/>
+    public Task<ClientResponse<UserResponse>> RetrieveUserInfoFromAccessTokenAsync(string encodedJWT) {
+      return buildAnonymousClient()
+          .withUri("/oauth2/userinfo")
+          .withAuthorization("Bearer " + encodedJWT)
+          .withMethod("Get")
+          .goAsync<UserResponse>();
+    }
+
+    /// <inheritdoc/>
     public Task<ClientResponse<LoginReportResponse>> RetrieveUserLoginReportAsync(Guid? applicationId, Guid? userId, long? start, long? end) {
       return buildClient()
           .withUri("/api/report/login")
@@ -1726,7 +1765,7 @@ namespace io.fusionauth {
     public Task<ClientResponse<UserResponse>> RetrieveUserUsingJWTAsync(string encodedJWT) {
       return buildAnonymousClient()
           .withUri("/api/user")
-          .withAuthorization("JWT " + encodedJWT)
+          .withAuthorization("Bearer " + encodedJWT)
           .withMethod("Get")
           .goAsync<UserResponse>();
     }
@@ -2130,7 +2169,7 @@ namespace io.fusionauth {
     public Task<ClientResponse<ValidateResponse>> ValidateJWTAsync(string encodedJWT) {
       return buildAnonymousClient()
           .withUri("/api/jwt/validate")
-          .withAuthorization("JWT " + encodedJWT)
+          .withAuthorization("Bearer " + encodedJWT)
           .withMethod("Get")
           .goAsync<ValidateResponse>();
     }
